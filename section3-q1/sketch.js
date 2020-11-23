@@ -4,15 +4,16 @@
 function setup(){
   createCanvas(400, 400);
   background(255);
-  balloon("I love keyakizaka46");
+  balloon("I love keyakizaka46",20,40,"#e6e6fa",0);
 }
 
-function balloon(t){
+function balloon(t,x,y,tc,bc){
   let w = textWidth(t);
-  let h = textAscent() + textDescent();
-  let p = 2;
-  fill(0);
-  rect(0, 0, w + p * 2, h + p * 2);
-  fill(255);
-  text(t, p, h + p);
+  let h = textAscent() + textDescent();//高さと幅
+  let p = 5;//余白の大きさ
+  fill(tc);
+  triangle(x,y+h,x+p,y+h+6,x-p,y+h+8);
+  rect(x, y, w + p * 2 , h + p * 2,8);
+  fill(bc);
+  text(t, p+x, h + p+y);
 }
